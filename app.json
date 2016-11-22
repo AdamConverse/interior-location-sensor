@@ -1,0 +1,6 @@
+{
+  "name": "Interior Location Sensor Web App",
+  "description": "",
+  "repository": "https://github.com/AdamConverse/interior-location-sensor",
+  "keywords": ["node", "websocket", "socket.io"]
+}
