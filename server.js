@@ -9,6 +9,7 @@ var location_x = 0;
 var location_y = 0;
 
 const PORT = process.env.PORT || 3000;
+const API_PORT = process.env.PORT || 5000;
 const INDEX = path.join(__dirname, 'index.html');
 
 const server = express()
@@ -29,8 +30,8 @@ app.post('/', function (req, res) {
   res.send('Success!');
 });
 
-app.listen(5000, function () {
-  console.log('API is listening on port 5000!');
+app.listen(API_PORT, function () {
+  console.log('API is listening on port ' + API_PORT);
 });
 
 io.on('connection', (socket) => {
