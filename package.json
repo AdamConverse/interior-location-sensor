@@ -1,5 +1,5 @@
 {
-  "name": "Interior Location Sensor Web App",
+  "name": "interior-location-sensor-web-app",
   "version": "1.0.0",
   "engines": {
     "node": "6.2.0"
