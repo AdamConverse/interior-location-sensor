@@ -1,16 +1,23 @@
-<html>
-  <body>
-    <p id='x-pos'></p>
-    <p id='y-pos'></p>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      var x_pos = document.getElementById('x-pos');
-      var y_pos = document.getElementById('y-pos');
-      socket.on('location', function(location_x, location_y) {
-        x_pos.innerHTML = 'X Coordinate: ' + location_x;
-        y_pos.innerHTML = 'Y Coordinate: ' + location_y;
-      });
-    </script>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+  <p id='x-pos'></p>
+  <p id='y-pos'></p>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    var socket = io();
+    var x_pos = document.getElementById('x-pos');
+    var y_pos = document.getElementById('y-pos');
+
+    socket.on('location', function(location_x, location_y) {
+      x_pos.innerHTML = 'X Coordinate: ' + location_x;
+      y_pos.innerHTML = 'Y Coordinate: ' + location_y;
+    });
+  </script>
+</body>
 </html>
