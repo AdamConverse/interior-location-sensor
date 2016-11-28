@@ -1,23 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-
+  <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
+  <link href="style.css">
 </head>
 <body>
   <p id='x-pos'></p>
   <p id='y-pos'></p>
+
+  <div class='content'>
+    <!-- /the chart goes here -->
+  </div>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 
   <script>
-    var socket = io();
-    var x_pos = document.getElementById('x-pos');
-    var y_pos = document.getElementById('y-pos');
+  var data = [[10,10]];
+  var margin = {top: 20, right: 15, bottom: 60, left: 60}
+    , width = 960 - margin.left - margin.right
+    , height = 500 - margin.top - margin.bottom;
 
-    socket.on('location', function(location_x, location_y) {
-      x_pos.innerHTML = 'X Coordinate: ' + location_x;
-      y_pos.innerHTML = 'Y Coordinate: ' + location_y;
-    });
+  var x = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d[0]; })])
+    .range([ 0, width ]);
+
+  var y = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d[1]; })])
+    .range([ height, 0 ]);
+
+  var chart = d3.select('body')
+    .append('svg:svg')
+    .attr('width', width + margin.right + margin.left)
+    .attr('height', height + margin.top + margin.bottom)
+    .attr('class', 'chart')
+
+  var main = chart.append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('class', 'main')
+
+  // draw the x axis
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient('bottom');
+
+  main.append('g')
+    .attr('transform', 'translate(0,' + height + ')')
+    .attr('class', 'main axis date')
+    .call(xAxis);
+
+  // draw the y axis
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient('left');
+
+  main.append('g')
+    .attr('transform', 'translate(0,0)')
+    .attr('class', 'main axis date')
+    .call(yAxis);
+
+  var g = main.append("svg:g");
+
+  // SOCKET IO
+  var socket = io();
+  var x_pos = document.getElementById('x-pos');
+  var y_pos = document.getElementById('y-pos');
+
+  socket.on('location', function(location_x, location_y) {
+    x_pos.innerHTML = 'X Coordinate: ' + location_x;
+    y_pos.innerHTML = 'Y Coordinate: ' + location_y;
+    console.log(location_x);
+    console.log(location_y);
+    console.log(data);
+
+    data = [[parseInt(location_x), parseInt(location_y)]];
+    g.selectAll("scatter-dots")
+      .data(data)
+      .enter().append("svg:circle")
+      .attr("cx", function (d,i) { return x(d[0]); } )
+      .attr("cy", function (d) { return y(d[1]); } )
+      .attr("r", 8);
+  });
   </script>
 </body>
 </html>
