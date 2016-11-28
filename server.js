@@ -22,7 +22,7 @@ app.post('/', function (req, res,next) {
 });
 
 server.listen(PORT);
-
+console.log("Port: " + PORT);
 io.on('connection', function(client) {
     console.log('Client connected...');
 
