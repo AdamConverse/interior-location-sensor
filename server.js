@@ -15,9 +15,10 @@ app.get('/', function(req, res,next) {
 const PORT = process.env.PORT || 3000;
 
 app.post('/', function (req, res,next) {
-  location_x = req.body.x_pos;
-  location_y = req.body.y_pos;
-  io.emit('location', location_x, location_y);
+  right_inches = req.body.rinches;
+  left_inches = req.body.linches;
+  angle = req.body.angle;
+  io.emit('location', right_inches, left_inches, angle);
   res.send('Success!');
 });
 
