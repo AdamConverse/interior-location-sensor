@@ -40,5 +40,5 @@ Open `serial_to_http.py` and change [line 7](https://github.com/AdamConverse/int
 
 ![alt text](assets/port.png "Port")
 
-# Run program
-To run the program use `(serial)$ python serial_to_http.py`.  Press Ctrl+C to stop.
+# Run
+After connecting Arduino and uploading sketch to board run the program using `(serial)$ python serial_to_http.py`.  Press Ctrl+C to stop.

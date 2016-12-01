@@ -69,10 +69,10 @@
   var left_inches = document.getElementById('left-inches');
   var angle = document.getElementById('angle');
 
-  socket.on('location', function(right_inches, left_inches, angle) {
-    right_inches.innerHTML = right_inches;
-    left_inches.innerHTML = left_inches;
-    angle.innerHTML = angle;
+  socket.on('location', function(rinches, linches, angle_in) {
+    right_inches.innerHTML = rinches;
+    left_inches.innerHTML = linches;
+    angle.innerHTML = angle_in;
 
     // x y calc
     // data = [[parseInt(location_x), parseInt(location_y)]];
