@@ -16,16 +16,8 @@ if __name__ == '__main__':
         print ser
         data = ser.split(",")
 
-        print json.dumps({
-            "rinches": data[0],
-            "linches": data[1],
-            "angle":   data[2]
-            })
+        payload = {'rinches': str(data[0]), 'linches': str(data[1]), 'angle': str(data[2])}
 
         r = requests.post("https://serene-reaches-34295.herokuapp.com/",
-                data=json.dumps({
-                    "rinches": data[0],
-                    "linches": data[1],
-                    "angle":   data[2]
-                    }),
-                headers={'Content-type': 'application/json'})
+                data = json.dumps(payload),
+                headers = {'Content-type': 'application/json'})
