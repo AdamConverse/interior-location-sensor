@@ -4,8 +4,8 @@ Running the program will send comma separated values from Arduino serial to HTTP
 # Requirements
 The program supports Python 2.7.
 
-### Python Install
-#### Mac OSX
+## Python Install
+### Mac OSX:
 * [Homebrew](http://brew.sh/):
   - `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
   - Insert the Homebrew directory at the top of your PATH environment variable:
@@ -15,7 +15,7 @@ The program supports Python 2.7.
 * [Virtualenv install](http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref)
   - `$ pip install virtualenv`
 
-#### Windows
+### Windows:
 Please see [link](http://docs.python-guide.org/en/latest/starting/install/win/) for reference.
 * [Download latest version of Python 2.7](https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi)
 * Install Setuptools and Pip
@@ -32,10 +32,10 @@ Open up your terminal and run these commands:
 - `$ virtualenv serial`
 - `$ source serial/bin/activate`
   * `(serial)$ # Your prompt should change`
-  * To stop virtual environment. `(serial)$ deactivate`
+  * Stop virtual environment with `(serial)$ deactivate`
 - `(serial)$ pip install -r requirements.txt`
 
 # Setup
-Open `serial_to_http.py` and change line
-# Run program
-To run the program use `(serial)$ python serial_to_http.py`
+Open `serial_to_http.py` and change [line 7](https://github.com/AdamConverse/interior-location-sensor/blob/master/arduino_serial/serial_to_http.py#L7) to match Arduino port.
+
+![alt text](assets/port.jpg "Port")
