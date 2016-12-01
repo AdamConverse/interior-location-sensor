@@ -20,7 +20,6 @@ app.post('/', function (req, res,next) {
   angle = req.body.angle;
   io.emit('location', right_inches, left_inches, angle);
   res.send('Success!');
-  console.log(reg);
 });
 
 server.listen(PORT);

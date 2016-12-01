@@ -21,3 +21,4 @@ if __name__ == '__main__':
         r = requests.post("https://serene-reaches-34295.herokuapp.com/",
                 data = json.dumps(payload),
                 headers = {'Content-type': 'application/json'})
+        exit()
