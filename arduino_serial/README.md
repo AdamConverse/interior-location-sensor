@@ -38,4 +38,7 @@ Open up your terminal and run these commands:
 # Setup
 Open `serial_to_http.py` and change [line 7](https://github.com/AdamConverse/interior-location-sensor/blob/master/arduino_serial/serial_to_http.py#L7) to match Arduino port.
 
-![alt text](assets/port.jpg "Port")
+![alt text](assets/port.png "Port")
+
+# Run program
+To run the program use `(serial)$ python serial_to_http.py`.  Press Ctrl+C to stop.
