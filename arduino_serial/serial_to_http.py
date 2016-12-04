@@ -13,9 +13,8 @@ if __name__ == '__main__':
     i = 0
     while True:
         data = ser_in.readline()[:-1].split(",")
-        if i%50 is 0:
+        if i%25 is 0:
             payload = {'rinches': str(data[0]), 'linches': str(data[1]), 'angle': str(data[2])}
-
             r = requests.post("https://serene-reaches-34295.herokuapp.com/arduino-1/",
                     data = json.dumps(payload),
                     headers = {'Content-type': 'application/json'})
