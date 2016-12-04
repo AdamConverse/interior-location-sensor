@@ -7,11 +7,12 @@ import json
 baud_rate = 9600
 serial_location = '/dev/cu.usbmodem1421'
 
+ser_in = serial.Serial(serial_location, baud_rate)
+
 if __name__ == '__main__':
     while True:
-        ser_in = serial.Serial(serial_location, baud_rate)
-        print ser_in
-        data = ser_in.split(",")
+        data = ser_in.readline()[:-1].split(",")
+        print data
 
         payload = {'rinches': str(data[0]), 'linches': str(data[1]), 'angle': str(data[2])}
 

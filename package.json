@@ -15,6 +15,7 @@
   "dependencies": {
     "body-parser": "^1.0.2",
     "express": "4.13.4",
-    "socket.io": "1.4.6"
+    "socket.io": "1.4.6",
+    "mathjs": "3.8.0"
   }
 }
