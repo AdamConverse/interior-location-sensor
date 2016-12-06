@@ -8,17 +8,14 @@
   <p>X-Coordinate: <span id='x-pos-1'></span></p>
   <p>Y-Coordinate: <span id='y-pos-1'></span></p>
 
-  <div class='content'>
-    <!-- /the chart goes here -->
-  </div>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 
   <script>
   var data = [[10,10]];
   var margin = {top: 20, right: 15, bottom: 60, left: 60}
-    , width = 500 - margin.left - margin.right
-    , height = 500 - margin.top - margin.bottom;
+    , width = 800 - margin.left - margin.right
+    , height = 800 - margin.top - margin.bottom;
 
   var x = d3.scale.linear()
     .domain([0, d3.max(data, function(d) { return d[0]; })])
