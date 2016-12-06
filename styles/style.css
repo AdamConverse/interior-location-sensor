@@ -1,0 +1,24 @@
+#container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.navbar-brand {
+  padding-top: 15px;
+}
+
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+    #container {
+      zoom: 1.7;
+    }
+    .navbar {
+      height: 75px;
+    }
+    .navbar-brand {
+      font-size: 24px;
+    }
+}
