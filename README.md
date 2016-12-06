@@ -1,4 +1,4 @@
-# Interior Location Sensor Web App
+# Interior Location Sensor
 Project Goal: Track a persons location in a 10' x 10' without a camera or any additional sensors on the person.
 
 * [Link to Web App](https://serene-reaches-34295.herokuapp.com/)
