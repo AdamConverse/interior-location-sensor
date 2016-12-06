@@ -7,18 +7,16 @@
   padding-top: 15px;
 }
 
-@media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) {
+@media screen and (max-width: 600px){
     #container {
-      zoom: 1.7;
+      margin-top: 80px;
+      zoom: .8;
+      margin-left: -30px;
     }
     .navbar {
       height: 75px;
     }
     .navbar-brand {
-      font-size: 24px;
+      font-size: 18px;
     }
 }
