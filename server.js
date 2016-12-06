@@ -5,6 +5,7 @@ var io = require('socket.io')(server);
 var bodyParser = require('body-parser');
 var math = require('mathjs');
 
+app.use("/styles",express.static(__dirname + "/styles"));
 app.use(express.static(__dirname + '/bower_components'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

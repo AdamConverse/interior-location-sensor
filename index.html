@@ -1,21 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script type="text/javascript" src="https://d3js.org/d3.v2.js"></script>
-  <link href="style.css">
-</head>
-<body>
-  <p>X-Coordinate: <span id='x-pos-1'></span></p>
-  <p>Y-Coordinate: <span id='y-pos-1'></span></p>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
+  <link rel='stylesheet' href='/styles/style.css' />
 
+  <script type="text/javascript" src="https://d3js.org/d3.v2.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Interior Location Sensor Demo</a>
+  </nav>
+
+
+
+  <div id="container" class="svg-container"></div>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <script>
   var data = [[10,10]];
-  var margin = {top: 20, right: 15, bottom: 60, left: 60}
-    , width = 800 - margin.left - margin.right
-    , height = 800 - margin.top - margin.bottom;
+  var margin = {top: 50, right: 15, bottom: 60, left: 60}
+    , width = 500 - margin.left - margin.right
+    , height = 500 - margin.top - margin.bottom;
 
   var x = d3.scale.linear()
     .domain([0, d3.max(data, function(d) { return d[0]; })])
@@ -25,7 +36,7 @@
     .domain([0, d3.max(data, function(d) { return d[1]; })])
     .range([ height, 0 ]);
 
-  var chart = d3.select('body')
+  var chart = d3.select('div#container')
     .append('svg:svg')
     .attr('width', width + margin.right + margin.left)
     .attr('height', height + margin.top + margin.bottom)
@@ -69,13 +80,9 @@
 
   // SOCKET IO
   var socket = io();
-  var x_pos_1 = document.getElementById('x-pos-1');
-  var y_pos_1 = document.getElementById('y-pos-1');
 
   socket.on('arduino-1', function(x_pos, y_pos) {
     d3.select("circle").remove();
-    x_pos_1.innerHTML = x_pos;
-    y_pos_1.innerHTML = y_pos;
     data = [[parseInt(x_pos), parseInt(y_pos)]];
     g.selectAll("scatter-dots")
       .data(data)
