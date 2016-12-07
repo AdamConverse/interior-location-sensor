@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 
 app.post('/arduino-1/', function (req, res,next) {
   angle = parseInt(req.body.angle);
-  distance = ((parseInt(req.body.rinches) + parseInt(req.body.linches)) / 2) / 12;
+  distance = ((parseInt(req.body.rinches) + parseInt(req.body.linches)) / 2);
   x_pos = distance * math.sin(math.unit(angle, 'deg'));
   y_pos = distance * math.cos(math.unit(angle, 'deg'));
   io.emit('arduino-1', x_pos, y_pos);
@@ -31,7 +31,7 @@ app.post('/arduino-1/', function (req, res,next) {
 
 app.post('/arduino-2/', function (req, res,next) {
   angle = parseInt(req.body.angle);
-  distance = ((parseInt(req.body.rinches) + parseInt(req.body.linches)) / 2) / 12;
+  distance = ((parseInt(req.body.rinches) + parseInt(req.body.linches)) / 2);
   x_pos = distance * math.sin(math.unit(angle, 'deg'));
   y_pos = distance * math.cos(math.unit(angle, 'deg'));
   io.emit('arduino-2', x_pos, y_pos);
