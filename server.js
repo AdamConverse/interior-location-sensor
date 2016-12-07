@@ -14,6 +14,10 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/2/', function(req, res,next) {
+    res.sendFile(__dirname + '/index2.html');
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.post('/arduino-1/', function (req, res,next) {

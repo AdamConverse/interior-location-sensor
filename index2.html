@@ -81,7 +81,7 @@
   // SOCKET IO
   var socket = io();
 
-  socket.on('arduino-1', function(x_pos, y_pos) {
+  socket.on('arduino-2', function(x_pos, y_pos) {
     d3.select("circle").remove();
     data = [[parseInt(x_pos), parseInt(y_pos)]];
     g.selectAll("scatter-dots")
