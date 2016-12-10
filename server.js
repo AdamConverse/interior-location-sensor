@@ -42,10 +42,4 @@ server.listen(PORT);
 console.log("Port: " + PORT);
 io.on('connection', function(client) {
     console.log('Client connected...');
-
-    client.on('location', function(data) {
-           client.emit('broad', data);
-           client.broadcast.emit('broad',data);
-    });
-
 });
