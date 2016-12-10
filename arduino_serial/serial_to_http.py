@@ -15,12 +15,10 @@ if __name__ == '__main__':
     i = 0
     while True:
         try:
-            if i%10 is 0:
-                data = ser_in.readline()[:-1].split(",")
-                print data
-                payload = {'rinches': str(data[0]), 'linches': str(data[1]), 'angle': str(data[2])}
-                r = s.post("http://localhost:3000/arduino-1/",
-                        data = json.dumps(payload),
-                        headers = {'Content-type': 'application/json'})
+            data = ser_in.readline()[:-1].split(",")
+            payload = {'rinches': str(data[0]), 'linches': str(data[1]), 'angle': str(data[2])}
+            r = s.post("https://serene-reaches-34295.herokuapp.com/arduino-1/",
+                    data = json.dumps(payload),
+                    headers = {'Content-type': 'application/json'})
         except:
             i = i + 1
